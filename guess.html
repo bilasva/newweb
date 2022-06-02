@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Игра в загадки </title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript">
+		
+		var score = 0;
+
+		function checkanswer(inputId, answers) {
+			var userAnswer = document.getElementById(inputId).value;
+			userAnswer = userAnswer.toLowerCase();
+			for (var i = 0; i < answers.length; i++) {
+				if (userAnswer == answers[i]){
+					score++;
+					break;
+				}
+			}
+		}
+
+		function checkanswers(){
+			checkanswer("userAnswer1",["red", "красного", "красная"]);
+			checkanswer("userAnswer2",["yellow", "желтый"]);
+			checkanswer("userAnswer3",["green", "зеленая"]);
+
+			alert("Загадок отгадано правильно: " + score);
+			score = 0;
+
+		}
+
+			
+	</script>
+</head>
+<body>
+
+<div class="header">
+	<a href="index.html">Главная страница</a>
+	<a href="guess.html">Загадки</a>
+	<a href="puzzle.html">Угадай число</a>
+	<a href="#">Curency exchange</a>
+</div>
+
+<h1> Игра в загадки </h1>
+
+	<p> Какого цвета была шапка? </p>
+	<input type="text" name="" id="userAnswer1">
+
+	<p> Какого цвета мед? </p>
+	<input type="text" name="" id="userAnswer2">
+
+	<p> Какого цвета трава? </p>
+	<input type="text" name="" id="userAnswer3">
+
+	<br>
+	<br>
+	<a href="#" onclick="checkanswers()"> Отвеить </a>
+
+<br>
+<br>
+<div class="footer">
+	Copyright &copy; Vitaly
+</div>
+
+</body>
+</html>

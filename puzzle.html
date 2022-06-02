@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Игра в загадки </title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript">
+
+		var answer = parseInt(Math.random() * 10); // Заказанное число
+		alert (answer);
+		var tryCount = 0; // Кол-во совершенных попыток
+		var maxTryCount = 5; // Кол-во попыток
+		
+		function readInt() {
+			return +document.getElementById('userAnswer').value
+		}
+
+		function write(text) {
+			document.getElementById('info').innerHTML = text;
+		}
+
+		function guess() {
+			
+			tryCount++;
+
+			for (var i = 1; i <= maxTryCount; i++) {
+				var userAnswer = readInt();
+					if (i == maxTryCount) {
+						write ("Проиграл!");
+					} else if (userAnswer == answer) {
+						write ("Угадал!");
+						break;
+					}else if(userAnswer < answer){
+						write ("Загаданное число больше!");
+					}else if(userAnswer > answer){
+						write ("Загаданное число меньше");
+					}
+
+			}
+			
+			/*
+			for (var i = 1; i <= maxTryCount; i++) {
+				var userAnswer = +prompt("Введи число от 0 до 10");
+				if (userAnswer == answer) {
+					alert ("Угадал!");
+					break;
+				}else if(userAnswer < answer){
+					alert ("Загаданное число больше!");
+				}else if(userAnswer > answer){
+					alert ("Загаданное число меньше");
+				}
+			} */
+		}
+
+			
+	</script>
+</head>
+<body>
+
+<div class="header">
+	<a href="index.html">Главная страница</a>
+	<a href="guess.html">Загадки</a>
+	<a href="puzzle.html">Угадай число</a>
+	<a href="#">Curency exchange</a>
+</div>
+
+<h1> Угадай число </h1>
+
+	<p id="info"> Угадай число от 0 до 10 за 5 попыток </p>
+	<input type="text" name="" id="userAnswer"> <br><br>
+
+	<a href="#" onclick="guess()"> Ответить </a>
+
+<br>
+<br>
+<div class="footer">
+	Copyright &copy; Vitaly
+</div>
+
+</body>
+</html>
